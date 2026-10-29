@@ -1,0 +1,90 @@
+/* ============================================================
+   Moldura de IA - Google Chrome Extension
+   Borda luminosa animada sincronizada entre branco e cor neon
+   ============================================================ */
+
+@property --ai-aura-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+#ai-screen-aura-root {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  pointer-events: none !important;
+  z-index: 2147483647 !important;
+  overflow: hidden !important;
+  transition: opacity 0.3s ease;
+}
+
+.ai-aura-border-line {
+  position: absolute !important;
+  inset: 0 !important;
+  box-sizing: border-box !important;
+  border-radius: 0px !important;
+  pointer-events: none !important;
+  border-style: solid !important;
+  border-color: transparent !important;
+  border-width: var(--ai-border-thickness, 3.5px) !important;
+  
+  /* Gradiente cônico que faz o feixe fluir continuamente entre branco e neon */
+  background: 
+    conic-gradient(
+      from var(--ai-aura-angle),
+      var(--ai-neon-base) 0deg,
+      #ffffff 35deg,
+      var(--ai-neon-accent) 70deg,
+      var(--ai-neon-base) 140deg,
+      #ffffff 180deg,
+      var(--ai-neon-accent) 215deg,
+      var(--ai-neon-base) 280deg,
+      #ffffff 320deg,
+      var(--ai-neon-base) 360deg
+    ) border-box !important;
+    
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) padding-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+          
+  animation: aiAuraSpin var(--ai-spin-duration, 4s) linear infinite !important;
+}
+
+/* Aura / Bloom exterior suave */
+.ai-aura-glow-bloom {
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  box-shadow: 
+    inset 0 0 16px 2px var(--ai-neon-glow),
+    0 0 18px 3px var(--ai-neon-glow) !important;
+  animation: aiAuraPulse 3s ease-in-out infinite alternate !important;
+  opacity: var(--ai-bloom-opacity, 0.75) !important;
+}
+
+/* Rotação angular contínua */
+@keyframes aiAuraSpin {
+  0% {
+    --ai-aura-angle: 0deg;
+  }
+  100% {
+    --ai-aura-angle: 360deg;
+  }
+}
+
+/* Pulsação sutil na intensidade da aura */
+@keyframes aiAuraPulse {
+  0% {
+    opacity: calc(var(--ai-bloom-opacity, 0.75) * 0.7);
+  }
+  100% {
+    opacity: var(--ai-bloom-opacity, 0.75);
+  }
+}

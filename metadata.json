@@ -1,0 +1,6 @@
+{
+  "name": "Moldura de IA - Extensão Google Chrome",
+  "description": "Extensão para Google Chrome com moldura luminosa animada que flui entre branco e cores fluorescentes para identificar sites de IA: ChatGPT, Gemini, Grok, Claude e Meta AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

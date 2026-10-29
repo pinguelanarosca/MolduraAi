@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Moldura de IA - Identificador Visual",
+  "version": "1.2.0",
+  "description": "Moldura luminosa animada ao redor da tela com menu de opções idêntico para configurar espessura, velocidade, aura e IAs ativas.",
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Moldura de IA - Opções",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.chatgpt.com/*",
+        "*://chatgpt.com/*",
+        "*://chat.openai.com/*",
+        "*://gemini.google.com/*",
+        "*://aistudio.google.com/*",
+        "*://*.claude.ai/*",
+        "*://claude.ai/*",
+        "*://*.grok.com/*",
+        "*://grok.com/*",
+        "*://x.com/i/grok*",
+        "*://twitter.com/i/grok*",
+        "*://*.meta.ai/*",
+        "*://meta.ai/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ]
+}

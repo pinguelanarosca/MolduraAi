@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Moldura de IA - Opções</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="header-title-box">
+        <div class="header-icon">✨</div>
+        <div>
+          <h1 class="header-title">Moldura de IA</h1>
+          <p class="header-subtitle">Menu de Opções da Extensão</p>
+        </div>
+      </div>
+      <span class="badge-v3">Manifest V3</span>
+    </header>
+
+    <!-- Mini Live Preview -->
+    <div class="preview-card" id="miniPreviewBox">
+      <div class="mini-bloom" id="miniBloom"></div>
+      <div class="mini-border" id="miniBorder"></div>
+      <div class="preview-inner">
+        <span class="preview-tag" id="previewTag">Preview em Tempo Real</span>
+        <span class="preview-sub" id="previewSub">Google Gemini (Azul)</span>
+      </div>
+    </div>
+
+    <!-- Controls Section Identical to Applet Bar -->
+    <section class="controls-panel">
+      <!-- 1. Espessura da Moldura -->
+      <div class="control-group">
+        <label class="control-label">
+          <span>📏 Espessura da Moldura:</span>
+        </label>
+        <div class="btn-group" id="thicknessGroup">
+          <button type="button" class="ctrl-btn" data-val="2.5">2.5px</button>
+          <button type="button" class="ctrl-btn active" data-val="3.5">3.5px (Ideal)</button>
+          <button type="button" class="ctrl-btn" data-val="5.0">5px</button>
+        </div>
+      </div>
+
+      <!-- 2. Velocidade do Fluxo -->
+      <div class="control-group">
+        <label class="control-label">
+          <span>⚡ Velocidade do Fluxo:</span>
+        </label>
+        <div class="btn-group" id="speedGroup">
+          <button type="button" class="ctrl-btn" data-val="5.5">Suave</button>
+          <button type="button" class="ctrl-btn active" data-val="4.0">Normal</button>
+          <button type="button" class="ctrl-btn" data-val="2.2">Rápido</button>
+        </div>
+      </div>
+
+      <!-- 3. Aura Fluorescente -->
+      <div class="control-group">
+        <label class="control-label">
+          <span>🔮 Aura Fluorescente:</span>
+        </label>
+        <div class="btn-group" id="glowGroup">
+          <button type="button" class="ctrl-btn active" data-val="high">Neon Intenso</button>
+          <button type="button" class="ctrl-btn" data-val="normal">Discreto</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Platform Toggles -->
+    <section class="platforms-panel">
+      <div class="section-heading">Ativar/Desativar por IA:</div>
+      <div class="platform-list">
+        <!-- ChatGPT -->
+        <label class="platform-row">
+          <div class="row-info">
+            <span class="color-dot" style="background:#10A37F; box-shadow: 0 0 8px #10A37F;"></span>
+            <span class="platform-name">ChatGPT</span>
+            <span class="platform-color">Verde</span>
+          </div>
+          <input type="checkbox" id="check_chatgpt" checked />
+        </label>
+
+        <!-- Gemini -->
+        <label class="platform-row">
+          <div class="row-info">
+            <span class="color-dot" style="background:#2563EB; box-shadow: 0 0 8px #2563EB;"></span>
+            <span class="platform-name">Google Gemini</span>
+            <span class="platform-color">Azul</span>
+          </div>
+          <input type="checkbox" id="check_gemini" checked />
+        </label>
+
+        <!-- Claude -->
+        <label class="platform-row">
+          <div class="row-info">
+            <span class="color-dot" style="background:#EA580C; box-shadow: 0 0 8px #EA580C;"></span>
+            <span class="platform-name">Claude</span>
+            <span class="platform-color">Alaranjado</span>
+          </div>
+          <input type="checkbox" id="check_claude" checked />
+        </label>
+
+        <!-- Grok -->
+        <label class="platform-row">
+          <div class="row-info">
+            <span class="color-dot" style="background:#EAB308; box-shadow: 0 0 8px #EAB308;"></span>
+            <span class="platform-name">Grok</span>
+            <span class="platform-color">Amarelo</span>
+          </div>
+          <input type="checkbox" id="check_grok" checked />
+        </label>
+
+        <!-- Meta AI -->
+        <label class="platform-row">
+          <div class="row-info">
+            <span class="color-dot" style="background:#C026D3; box-shadow: 0 0 8px #C026D3;"></span>
+            <span class="platform-name">Meta AI</span>
+            <span class="platform-color">Roxo</span>
+          </div>
+          <input type="checkbox" id="check_meta" checked />
+        </label>
+      </div>
+    </section>
+
+    <!-- Footer status -->
+    <footer class="popup-footer">
+      <span class="status-indicator">✓ Opções sincronizadas automaticamente</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
